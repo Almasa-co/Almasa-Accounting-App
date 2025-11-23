@@ -1,0 +1,92 @@
+{
+    "common": {
+        "language": "اللغة",
+        "english": "الإنجليزية",
+        "arabic": "العربية",
+        "loading": "جاري التحميل...",
+        "save": "حفظ",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "edit": "تعديل",
+        "create": "إنشاء",
+        "actions": "الإجراءات",
+        "search": "بحث",
+        "filter": "تصفية",
+        "export": "تصدير",
+        "import": "استيراد",
+        "logout": "تسجيل الخروج",
+        "viewAll": "عرض الكل",
+        "noData": "لا توجد بيانات",
+        "noDescription": "لا يوجد وصف"
+    },
+    "auth": {
+        "signIn": "تسجيل الدخول",
+        "createAccount": "إنشاء حساب",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "firstName": "الاسم الأول",
+        "lastName": "اسم العائلة",
+        "emailPlaceholder": "you@example.com",
+        "passwordPlaceholder": "••••••••",
+        "signingIn": "جاري تسجيل الدخول...",
+        "creatingAccount": "جاري إنشاء الحساب...",
+        "welcomeBack": "مرحباً بعودتك!",
+        "accountCreated": "تم إنشاء الحساب بنجاح!"
+    },
+    "nav": {
+        "dashboard": "لوحة التحكم",
+        "invoices": "الفواتير",
+        "expenses": "المصروفات",
+        "customers": "العملاء",
+        "reports": "التقارير"
+    },
+    "dashboard": {
+        "title": "لوحة التحكم",
+        "totalIncome": "إجمالي الدخل",
+        "totalExpenses": "إجمالي المصروفات",
+        "netProfit": "صافي الربح",
+        "pendingInvoices": "الفواتير المعلقة",
+        "incomeVsExpenses": "الدخل مقابل المصروفات (6 أشهر)",
+        "expensesByCategory": "المصروفات حسب الفئة",
+        "recentInvoices": "أحدث الفواتير",
+        "recentExpenses": "أحدث المصروفات",
+        "overdueInvoices": "الفواتير المتأخرة",
+        "due": "الاستحقاق",
+        "income": "الدخل",
+        "expenses": "المصروفات"
+    },
+    "invoices": {
+        "title": "الفواتير",
+        "createInvoice": "إنشاء فاتورة",
+        "invoiceNumber": "رقم الفاتورة",
+        "customer": "العميل",
+        "date": "التاريخ",
+        "dueDate": "تاريخ الاستحقاق",
+        "amount": "المبلغ",
+        "status": "الحالة",
+        "total": "الإجمالي"
+    },
+    "expenses": {
+        "title": "المصروفات",
+        "createExpense": "إضافة مصروف",
+        "category": "الفئة",
+        "vendor": "المورد",
+        "date": "التاريخ",
+        "amount": "المبلغ",
+        "description": "الوصف"
+    },
+    "customers": {
+        "title": "العملاء",
+        "createCustomer": "إضافة عميل",
+        "name": "الاسم",
+        "email": "البريد الإلكتروني",
+        "phone": "الهاتف",
+        "address": "العنوان"
+    },
+    "reports": {
+        "title": "التقارير",
+        "profitLoss": "الأرباح والخسائر",
+        "cashFlow": "التدفق النقدي",
+        "balanceSheet": "الميزانية العمومية"
+    }
+}

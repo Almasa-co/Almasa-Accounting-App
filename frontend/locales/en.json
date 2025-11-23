@@ -1,0 +1,92 @@
+{
+    "common": {
+        "language": "Language",
+        "english": "English",
+        "arabic": "Arabic",
+        "loading": "Loading...",
+        "save": "Save",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "edit": "Edit",
+        "create": "Create",
+        "actions": "Actions",
+        "search": "Search",
+        "filter": "Filter",
+        "export": "Export",
+        "import": "Import",
+        "logout": "Logout",
+        "viewAll": "View all",
+        "noData": "No data available",
+        "noDescription": "No description"
+    },
+    "auth": {
+        "signIn": "Sign In",
+        "createAccount": "Create Account",
+        "email": "Email Address",
+        "password": "Password",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "emailPlaceholder": "you@example.com",
+        "passwordPlaceholder": "••••••••",
+        "signingIn": "Signing in...",
+        "creatingAccount": "Creating account...",
+        "welcomeBack": "Welcome back!",
+        "accountCreated": "Account created successfully!"
+    },
+    "nav": {
+        "dashboard": "Dashboard",
+        "invoices": "Invoices",
+        "expenses": "Expenses",
+        "customers": "Customers",
+        "reports": "Reports"
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "totalIncome": "Total Income",
+        "totalExpenses": "Total Expenses",
+        "netProfit": "Net Profit",
+        "pendingInvoices": "Pending Invoices",
+        "incomeVsExpenses": "Income vs Expenses (6 Months)",
+        "expensesByCategory": "Expenses by Category",
+        "recentInvoices": "Recent Invoices",
+        "recentExpenses": "Recent Expenses",
+        "overdueInvoices": "Overdue Invoices",
+        "due": "Due",
+        "income": "Income",
+        "expenses": "Expenses"
+    },
+    "invoices": {
+        "title": "Invoices",
+        "createInvoice": "Create Invoice",
+        "invoiceNumber": "Invoice Number",
+        "customer": "Customer",
+        "date": "Date",
+        "dueDate": "Due Date",
+        "amount": "Amount",
+        "status": "Status",
+        "total": "Total"
+    },
+    "expenses": {
+        "title": "Expenses",
+        "createExpense": "Create Expense",
+        "category": "Category",
+        "vendor": "Vendor",
+        "date": "Date",
+        "amount": "Amount",
+        "description": "Description"
+    },
+    "customers": {
+        "title": "Customers",
+        "createCustomer": "Create Customer",
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address"
+    },
+    "reports": {
+        "title": "Reports",
+        "profitLoss": "Profit & Loss",
+        "cashFlow": "Cash Flow",
+        "balanceSheet": "Balance Sheet"
+    }
+}

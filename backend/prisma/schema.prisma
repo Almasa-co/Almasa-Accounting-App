@@ -1,0 +1,255 @@
+// Prisma Schema for Accounting Application
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// User Management
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  firstName String
+  lastName  String
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  invoices Invoice[]
+  expenses Expense[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+// Customer Management
+model Customer {
+  id          String   @id @default(uuid())
+  name        String
+  email       String?
+  phone       String?
+  address     String?  @db.Text
+  city        String?
+  state       String?
+  zipCode     String?
+  country     String?  @default("US")
+  taxNumber   String?
+  website     String?
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  invoices Invoice[]
+
+  @@map("customers")
+}
+
+// Vendor Management
+model Vendor {
+  id          String   @id @default(uuid())
+  name        String
+  email       String?
+  phone       String?
+  address     String?  @db.Text
+  city        String?
+  state       String?
+  zipCode     String?
+  country     String?  @default("US")
+  taxNumber   String?
+  website     String?
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  expenses Expense[]
+
+  @@map("vendors")
+}
+
+// Tax Rates
+model Tax {
+  id          String   @id @default(uuid())
+  name        String
+  rate        Decimal  @db.Decimal(10, 2)
+  description String?
+  enabled     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  invoiceItems InvoiceItem[]
+  expenseItems ExpenseItem[]
+
+  @@map("taxes")
+}
+
+// Currency
+model Currency {
+  id        String   @id @default(uuid())
+  code      String   @unique
+  name      String
+  symbol    String
+  rate      Decimal  @db.Decimal(10, 6) @default(1)
+  enabled   Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  invoices Invoice[]
+  expenses Expense[]
+
+  @@map("currencies")
+}
+
+// Invoice
+model Invoice {
+  id             String        @id @default(uuid())
+  invoiceNumber  String        @unique
+  customerId     String
+  userId         String
+  currencyId     String
+  invoiceDate    DateTime
+  dueDate        DateTime
+  status         InvoiceStatus @default(DRAFT)
+  subtotal       Decimal       @db.Decimal(10, 2)
+  taxAmount      Decimal       @db.Decimal(10, 2) @default(0)
+  discountAmount Decimal       @db.Decimal(10, 2) @default(0)
+  total          Decimal       @db.Decimal(10, 2)
+  paidAmount     Decimal       @db.Decimal(10, 2) @default(0)
+  notes          String?       @db.Text
+  terms          String?       @db.Text
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  customer Customer      @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  user     User          @relation(fields: [userId], references: [id])
+  currency Currency      @relation(fields: [currencyId], references: [id])
+  items    InvoiceItem[]
+  payments Payment[]
+
+  @@map("invoices")
+}
+
+enum InvoiceStatus {
+  DRAFT
+  SENT
+  VIEWED
+  APPROVED
+  PARTIAL
+  PAID
+  OVERDUE
+  CANCELLED
+}
+
+// Invoice Items
+model InvoiceItem {
+  id          String  @id @default(uuid())
+  invoiceId   String
+  name        String
+  description String? @db.Text
+  quantity    Decimal @db.Decimal(10, 2)
+  price       Decimal @db.Decimal(10, 2)
+  taxId       String?
+  total       Decimal @db.Decimal(10, 2)
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+  tax     Tax?    @relation(fields: [taxId], references: [id])
+
+  @@map("invoice_items")
+}
+
+// Expense Categories
+model ExpenseCategory {
+  id          String   @id @default(uuid())
+  name        String   @unique
+  description String?
+  color       String?  @default("#6366f1")
+  enabled     Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  expenses Expense[]
+
+  @@map("expense_categories")
+}
+
+// Expense
+model Expense {
+  id          String   @id @default(uuid())
+  categoryId  String
+  vendorId    String?
+  userId      String
+  currencyId  String
+  expenseDate DateTime
+  amount      Decimal  @db.Decimal(10, 2)
+  reference   String?
+  description String?  @db.Text
+  notes       String?  @db.Text
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  category ExpenseCategory @relation(fields: [categoryId], references: [id])
+  vendor   Vendor?         @relation(fields: [vendorId], references: [id])
+  user     User            @relation(fields: [userId], references: [id])
+  currency Currency        @relation(fields: [currencyId], references: [id])
+  items    ExpenseItem[]
+
+  @@map("expenses")
+}
+
+// Expense Items (for tax breakdown)
+model ExpenseItem {
+  id        String  @id @default(uuid())
+  expenseId String
+  taxId     String?
+  amount    Decimal @db.Decimal(10, 2)
+
+  expense Expense @relation(fields: [expenseId], references: [id], onDelete: Cascade)
+  tax     Tax?    @relation(fields: [taxId], references: [id])
+
+  @@map("expense_items")
+}
+
+// Payments
+model Payment {
+  id          String        @id @default(uuid())
+  invoiceId   String
+  amount      Decimal       @db.Decimal(10, 2)
+  paymentDate DateTime
+  method      PaymentMethod @default(BANK_TRANSFER)
+  reference   String?
+  notes       String?       @db.Text
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  invoice Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade)
+
+  @@map("payments")
+}
+
+enum PaymentMethod {
+  CASH
+  BANK_TRANSFER
+  CREDIT_CARD
+  PAYPAL
+  CHECK
+  OTHER
+}
+
+// Settings
+model Setting {
+  id        String   @id @default(uuid())
+  key       String   @unique
+  value     String   @db.Text
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("settings")
+}
