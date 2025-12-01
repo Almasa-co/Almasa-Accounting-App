@@ -1,4 +1,4 @@
-# Quick Setup Guide
+# AlmasaAccounting - Setup Guide
 
 ## For Windows Users
 
@@ -19,14 +19,14 @@
 Open MySQL Command Line or phpMyAdmin:
 
 ```sql
-CREATE DATABASE accounting_db;
+CREATE DATABASE almasaaccounting_db;
 ```
 
 ### 3. Setup Backend
 
 ```powershell
 # Open PowerShell and navigate to project
-cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\accounting-app
+cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\AlmasaAccounting
 
 # Go to backend folder
 cd backend
@@ -43,7 +43,7 @@ notepad .env
 
 In the .env file, update:
 ```
-DATABASE_URL="mysql://root:YOUR_MYSQL_PASSWORD@localhost:3306/accounting_db"
+DATABASE_URL="mysql://root:YOUR_MYSQL_PASSWORD@localhost:3306/almasaaccounting_db"
 JWT_SECRET=change-this-to-something-random-and-secure
 ```
 
@@ -70,7 +70,7 @@ Open a NEW PowerShell window:
 
 ```powershell
 # Navigate to project
-cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\accounting-app
+cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\AlmasaAccounting
 
 # Go to frontend folder
 cd frontend
@@ -92,7 +92,7 @@ Keep this terminal open too! Frontend is now running on http://localhost:3000
 1. Open your web browser
 2. Go to: http://localhost:3000
 3. Login with:
-   - Email: admin@accounting.com
+   - Email: admin@almasaaccounting.com
    - Password: admin123
 
 ## 🎉 You're Done!
@@ -117,12 +117,12 @@ Whenever you want to use the application:
 1. Start MySQL (if not running)
 2. Open terminal 1: 
    ```
-   cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\accounting-app\backend
+   cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\AlmasaAccounting\backend
    npm run dev
    ```
 3. Open terminal 2:
    ```
-   cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\accounting-app\frontend
+   cd C:\Users\Nyan-nyaaa!!\Documents\Almasa\AlmasaAccounting\frontend
    npm run dev
    ```
 4. Open browser to http://localhost:3000
@@ -134,4 +134,4 @@ Whenever you want to use the application:
 - Sample data includes customers, vendors, and categories
 - All invoice calculations are automatic
 
-Enjoy your new accounting application! 🚀
+Enjoy your new AlmasaAccounting! 🚀

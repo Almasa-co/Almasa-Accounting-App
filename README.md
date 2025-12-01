@@ -1,35 +1,35 @@
-# Accounting Pro - Complete Accounting Application
+# AlmasaAccounting - Enterprise Grade Accounting Solution
 
-A comprehensive, production-ready accounting application similar to Akaunting, built with modern technologies.
+A powerful, production-ready accounting application designed and built by Almasa to streamline business financial management.
 
 ## 🚀 Features
 
-- **Invoice Management** - Create, edit, and track invoices with automatic calculations
-- **Expense Tracking** - Categorize and monitor business expenses
-- **Customer & Vendor Management** - Maintain detailed contact records
-- **Financial Reports** - Profit & Loss statements with category breakdowns
-- **Dashboard Analytics** - Real-time financial insights and charts
-- **Multi-Currency Support** - Work with multiple currencies
-- **Tax Calculations** - Automatic tax calculations on invoices and expenses
-- **Beautiful UI** - Modern, responsive design with Tailwind CSS
+- **Smart Invoice Management** - Create, edit, and track invoices with automatic calculations and status tracking
+- **Expense Tracking** - Comprehensive categorization and monitoring of business expenses
+- **Customer & Vendor Management** - Maintain detailed contact records and transaction history
+- **Financial Intelligence** - Real-time Profit & Loss statements with detailed category breakdowns
+- **Interactive Dashboard** - Visual analytics and charts for instant business insights
+- **Multi-Currency Engine** - Seamlessly work with international currencies
+- **Automated Tax Handling** - Precise tax calculations on all transactions
+- **Modern UI/UX** - A beautiful, responsive interface built for productivity
 
 ## 🛠 Technology Stack
 
 ### Backend
-- **Node.js** + **Express** - RESTful API server
-- **TypeScript** - Type-safe backend code
-- **Prisma** - Database ORM
-- **MySQL** - Relational database
-- **JWT** - Secure authentication
-- **bcrypt** - Password hashing
+- **Node.js** + **Express** - High-performance RESTful API
+- **TypeScript** - Enterprise-grade type safety
+- **Prisma** - Next-generation ORM
+- **MySQL** - Robust relational database
+- **JWT** - Secure, stateless authentication
+- **bcrypt** - Industry-standard password hashing
 
 ### Frontend
-- **Next.js 14** - React framework with App Router
-- **React** - UI library
-- **TypeScript** - Type-safe frontend code
-- **Tailwind CSS** - Utility-first CSS framework
-- **Chart.js** - Data visualization
-- **Axios** - HTTP client
+- **Next.js 14** - Cutting-edge React framework
+- **React** - Component-based UI architecture
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Modern styling framework
+- **Chart.js** - Advanced data visualization
+- **Axios** - Optimized HTTP client
 
 ## 📋 Prerequisites
 
@@ -44,7 +44,7 @@ Before you begin, ensure you have the following installed:
 ### Step 1: Clone or Navigate to the Project
 
 ```bash
-cd accounting-app
+cd AlmasaAccounting
 ```
 
 ### Step 2: Setup Backend
@@ -60,7 +60,7 @@ npm install
 copy .env.example .env
 
 # Edit .env file with your database credentials:
-# DATABASE_URL="mysql://root:yourpassword@localhost:3306/accounting_db"
+# DATABASE_URL="mysql://root:yourpassword@localhost:3306/almasaaccounting_db"
 # JWT_SECRET=your-super-secret-jwt-key
 
 # Generate Prisma client
@@ -102,136 +102,144 @@ The frontend will run on `http://localhost:3000`
 
 1. Open your browser and navigate to `http://localhost:3000`
 2. Login with the default credentials:
-   - **Email**: `admin@accounting.com`
+   - **Email**: `admin@almasaaccounting.com`
    - **Password**: `admin123`
 
 ## 📚 Project Structure
 
 ```
-accounting-app/
-├── backend/                 # Express API Server
+AlmasaAccounting/
+├── backend/                 # API Server & Business Logic
 │   ├── prisma/             # Database schema and migrations
-│   │   ├── schema.prisma   # Prisma schema
-│   │   └── seed.ts         # Database seeding script
+│   │   ├── schema.prisma   # Data models
+│   │   └── seed.ts         # Initial data population
 │   ├── src/
-│   │   ├── routes/         # API route handlers
-│   │   ├── middleware/     # Authentication & validation
-│   │   ├── lib/            # Shared utilities
-│   │   └── server.ts       # Main server file
+│   │   ├── routes/         # API endpoints
+│   │   ├── middleware/     # Security & validation layers
+│   │   ├── lib/            # Core utilities
+│   │   └── server.ts       # Application entry point
 │   ├── package.json
 │   └── tsconfig.json
 │
-└── frontend/               # Next.js Frontend
-    ├── app/                # Next.js App Router
-    │   ├── dashboard/      # Dashboard pages
+└── frontend/               # User Interface
+    ├── app/                # Application Routing
+    │   ├── dashboard/      # Protected application area
     │   │   ├── invoices/
     │   │   ├── expenses/
     │   │   ├── customers/
     │   │   ├── vendors/
     │   │   └── reports/
-    │   ├── globals.css     # Global styles
-    │   ├── layout.tsx      # Root layout
-    │   └── page.tsx        # Login page
-    ├── lib/                # Utilities and API client
+    │   ├── globals.css     # Design system
+    │   ├── layout.tsx      # Root layout structure
+    │   └── page.tsx        # Authentication entry
+    ├── lib/                # Client-side utilities
     ├── package.json
     └── tailwind.config.js
 ```
 
-## 🎯 Main Features Guide
+## 🎯 Features Guide
 
 ### Creating an Invoice
 
-1. Go to **Invoices** page
+1. Navigate to **Invoices**
 2. Click **New Invoice**
-3. Fill in customer, dates, and line items
-4. Invoice will auto-calculate totals with taxes
-5. Update status as needed (Draft → Sent → Paid)
+3. Select customer and add line items
+4. System automatically calculates subtotal, taxes, and grand total
+5. Manage lifecycle (Draft → Sent → Paid)
 
 ### Tracking Expenses
 
-1. Go to **Expenses** page
+1. Navigate to **Expenses**
 2. Click **Add Expense**
-3. Select category, vendor, and amount
-4. View expenses grouped by category
+3. Record details including category and vendor
+4. Monitor spending patterns via reports
 
-### Viewing Reports
+### Financial Reporting
 
-1. Go to **Reports** page  
-2. View Profit & Loss statement
-3. See expense breakdown by category
-4. Filter by date range
+1. Access the **Reports** section
+2. Generate Profit & Loss statements
+3. Analyze expense distribution
+4. Filter data by custom date ranges
 
-## 🔒 Security Features
+## 🔒 Security Architecture
 
-- JWT-based authentication
-- Password hashing with bcrypt
-- Protected API routes
-- CORS configuration
-- Input validation
+- **Authentication**: Secure JWT-based session management
+- **Data Protection**: Bcrypt password hashing
+- **API Security**: Protected routes and middleware
+- **Network**: CORS configuration
+- **Validation**: Strict input validation and sanitization
 
-## 🎨 Design Features
+## 🎨 Design Philosophy
 
-- Modern gradient design
-- Smooth animations
-- Responsive layout  
-- Card-based UI
-- Color-coded categories
-- Interactive charts
+- **Modern Aesthetic**: Clean, gradient-based design
+- **Interactivity**: Smooth transitions and animations
+- **Responsiveness**: Fully adaptive layout for all devices
+- **Visual Hierarchy**: Card-based UI with clear information architecture
+- **Data Visualization**: Interactive charts for financial data
 
-## 📝 API Endpoints
+## 📝 API Reference
 
 ### Authentication
-- `POST /api/auth/register` - Register new user
-- `POST /api/auth/login` - Login user
-- `GET /api/auth/me` - Get current user
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User authentication
+- `GET /api/auth/me` - Session validation
 
 ### Invoices
-- `GET /api/invoices` - List all invoices
-- `POST /api/invoices` - Create invoice
-- `GET /api/invoices/:id` - Get invoice details
+- `GET /api/invoices` - Retrieve invoices
+- `POST /api/invoices` - Generate new invoice
+- `GET /api/invoices/:id` - Retrieve invoice details
 - `PUT /api/invoices/:id` - Update invoice
-- `PATCH /api/invoices/:id/status` - Update status
+- `PATCH /api/invoices/:id/status` - Update invoice status
 
 ### Expenses
-- `GET /api/expenses` - List all expenses
-- `POST /api/expenses` - Create expense
-- `GET /api/expenses/:id` - Get expense details
+- `GET /api/expenses` - Retrieve expenses
+- `POST /api/expenses` - Record new expense
+- `GET /api/expenses/:id` - Retrieve expense details
 - `PUT /api/expenses/:id` - Update expense
 
-### Customers & Vendors
+### Contacts
 - `GET /api/customers` - List customers
-- `POST /api/customers` - Create customer
+- `POST /api/customers` - Add customer
 - `GET /api/vendors` - List vendors
-- `POST /api/vendors` - Create vendor
+- `POST /api/vendors` - Add vendor
 
-### Reports
-- `GET /api/reports/profit-loss` - Profit & Loss report
-- `GET /api/dashboard/stats` - Dashboard statistics
+### Analytics
+- `GET /api/reports/profit-loss` - Generate P&L report
+- `GET /api/dashboard/stats` - Retrieve dashboard metrics
 
-## 🐛 Troubleshooting
+## 🚀 Production Deployment
 
-### Database Connection Error
-- Ensure MySQL is running
-- Check DATABASE_URL in backend/.env
-- Verify database credentials
+Ready to deploy to a Linux server? See our comprehensive deployment guide:
 
-### Port Already in Use
-- Backend is set to port 5000
-- Frontend is set to port 3000
-- Change ports in respective .env files if needed
+**[📖 Linux Deployment Guide](DEPLOYMENT.md)**
 
-### Dependencies Installation Failed
-- Try deleting node_modules and package-lock.json
-- Run `npm install` again
+### Quick Production Start
+
+```bash
+# On your Linux server
+cd /var/www/AlmasaAccounting
+
+# Backend
+cd backend
+npm install
+npm run build
+npm run start:prod
+
+# Frontend  
+cd ../frontend
+npm install
+npm run build
+npm run start:prod
+```
 
 ## 📄 License
 
-MIT License - feel free to use this project for personal or commercial purposes.
+Proprietary software by Almasa. All rights reserved.
 
 ## 🤝 Support
 
-For issues or questions, please create an issue in the repository.
+For support inquiries, please contact the Almasa development team.
 
 ---
 
-**Built with ❤️ using Next.js, Express, and MySQL**
+**Built with ❤️ by Almasa**

@@ -10,14 +10,14 @@
 1. Open `backend\.env` file
 2. Change this line:
    ```
-   DATABASE_URL="mysql://root:password@localhost:3306/accounting_db"
+   DATABASE_URL="mysql://root:password@localhost:3306/almasaaccounting_db"
    ```
    Replace `password` with YOUR actual MySQL root password
 
 ### Step 2: Create Database
 Open MySQL and run:
 ```sql
-CREATE DATABASE accounting_db;
+CREATE DATABASE almasaaccounting_db;
 ```
 
 ### Step 3: Run These Commands in Backend Folder
@@ -46,7 +46,7 @@ npm run dev
 
 ### Step 5: Access Application
 - Go to http://localhost:3000
-- Login: admin@accounting.com / admin123
+- Login: admin@almasaaccounting.com / admin123
 
 ---
 

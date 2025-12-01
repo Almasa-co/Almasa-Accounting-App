@@ -1,0 +1,29 @@
+[Unit]
+Description=Almasa Accounting Frontend
+Documentation=https://github.com/yourusername/accounting-app
+After=network.target accounting-backend.service
+
+[Service]
+Type=forking
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/accounting-app/frontend
+Environment=NODE_ENV=production
+EnvironmentFile=/var/www/accounting-app/frontend/.env.local
+ExecStart=/usr/bin/pm2 start ecosystem.config.js --env production
+ExecReload=/usr/bin/pm2 reload accounting-frontend
+ExecStop=/usr/bin/pm2 stop accounting-frontend
+Restart=on-failure
+RestartSec=10s
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=accounting-frontend
+
+[Install]
+WantedBy=multi-user.target

@@ -12,6 +12,7 @@ import taxRoutes from './routes/taxes';
 import currencyRoutes from './routes/currencies';
 import paymentRoutes from './routes/payments';
 import reportRoutes from './routes/reports';
+import { initializeDatabase, disconnectDatabase } from './lib/db-init';
 
 // Load environment variables
 dotenv.config();
@@ -56,10 +57,39 @@ app.use((err: any, req: Request, res: Response, next: any) => {
     res.status(500).json({ error: 'Internal server error' });
 });
 
-// Start server
-app.listen(port, () => {
-    console.log(`⚡️ Server is running at http://localhost:${port}`);
-    console.log(`📊 Accounting API ready`);
-});
+// Initialize database and start server
+async function startServer() {
+    try {
+        // Initialize database (auto-create tables if needed)
+        await initializeDatabase();
+
+        // Start server
+        app.listen(port, () => {
+            console.log(`⚡️ Server is running at http://localhost:${port}`);
+            console.log(`📊 Accounting API ready`);
+        });
+
+        // Graceful shutdown
+        process.on('SIGINT', async () => {
+            console.log('\n🛑 Shutting down gracefully...');
+            await disconnectDatabase();
+            process.exit(0);
+        });
+
+        process.on('SIGTERM', async () => {
+            console.log('\n🛑 Shutting down gracefully...');
+            await disconnectDatabase();
+            process.exit(0);
+        });
+
+    } catch (error) {
+        console.error('❌ Failed to start server:', error);
+        process.exit(1);
+    }
+}
+
+// Start the application
+startServer();
 
 export default app;
+

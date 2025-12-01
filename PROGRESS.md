@@ -70,7 +70,7 @@ npm run dev
 ---
 
 ## 📝 Default Login
-- Email: `admin@accounting.com`
+- Email: `admin@almasaaccounting.com`
 - Password: `admin123`
 
 ---
